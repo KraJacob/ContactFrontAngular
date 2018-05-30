@@ -9,17 +9,37 @@ import { ContactService } from '../../services/contacts.service';
 })
 export class ContactsComponent implements OnInit {
 pageContact:any;
+
+motCle:String="";
+page:number=0;
+size:number=5;
+nbrePage:Array<number>
   constructor(public http:Http,public constactService:ContactService) { }
 
   ngOnInit() {
 
-        this.constactService.getContact()
+
+  }
+
+  doSearch(){
+    this.constactService.getContact(this.motCle,this.size,this.page)
         .subscribe(data=>{
           this.pageContact=data;
+          this.nbrePage= new Array(data.totalPages)
         },err=>{
           console.log(err);
         }
         )
+
+  }
+
+  chercher(){
+    this.doSearch();
+  }
+
+  gotoPage(i:number){
+   this.page=i;
+   this.doSearch();
   }
 
 }

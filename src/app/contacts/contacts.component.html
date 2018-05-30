@@ -1,6 +1,11 @@
 <div class="container">
     <h2></h2>
     <div class="card card-primary">
+      <div class="form-group margin-top" id="margin-left-input">
+        <label>Mote clé:</label>
+        <input type="text"  [(ngModel)]="motCle" />
+        <button class="btn btn-primary btn-md" (click)="chercher()">Chercher</button>
+      </div>
       <div class="card card-heading">Liste des contacts </div>
       <div class="card-body">
        <table class="table tble-striped">
@@ -16,6 +21,13 @@
            <td>{{c.prenom}}</td>
            <td>{{c.email}}</td>
          </tr>
+         <div class="container">
+           <ul class="nav nav-pills">
+             <li [ngClass]="{'active':i==page}"  *ngFor="let p of nbrePage; let i=index" >
+              <a class="btn" (click)="gotoPage(i)">{{i+1}}</a>
+              </li>
+           </ul>
+         </div>
        </table>
       </div>
       <div class="card-footer">Footer</div>

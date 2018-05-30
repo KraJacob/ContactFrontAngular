@@ -1,0 +1,58 @@
+
+<div class="container">
+
+  <div class="card card-primary" *ngIf="mode==1">
+    <div class="card card-heading">Nouveau contact</div>
+    <div class="card-body">
+      <div class="form-group">
+        <label class="control-label">Nom:</label>
+              <input type="text" class="form-control" [(ngModel)]="contact.nom"/>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Prénom:</label>
+             <input type="text" class="form-control" [(ngModel)]="contact.prenom"/>
+        </div>
+       <div class="form-group">
+        <label class="control-label">Email:</label>
+             <input type="text" class="form-control" [(ngModel)]="contact.email"/>
+        </div>
+      <div class="form-group">
+        <label class="control-label">Date Naissance:</label>
+          <input type="date" class="form-control" [(ngModel)]="contact.dateNaissance"/>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Tel:</label>
+                 <input type="text" class="form-control" [(ngModel)]="contact.tel"/>
+         </div>
+      <button class="btn btn-success fa fa-check" (click)="saveContact()">Valider</button>
+    </div>
+    <div class="card-footer">Footer</div>
+  </div>
+  <div class="card card-primary" *ngIf="mode==2">
+    <div class="card card-heading">Détail contact</div>
+    <div class="card-body">
+      <div class="form-group">
+        <label class="control-label">Nom:</label>
+        <label class="control-label">{{contact.nom}}</label>
+        </div>
+      <div class="form-group">
+        <label class="control-label">Prénom:</label>
+        <label class="control-label">{{contact.prenom}}</label>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Email:</label>
+        <label class="control-label">{{contact.email}}</label>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Date Naissance:</label>
+        <label class="control-label">{{contact.dateNaissance}}</label>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Tel:</label>
+        <label class="control-label">{{contact.tel}}</label>
+      </div>
+      <button class="btn btn-success fa fa-check" (click)="mode=1">Nouveau</button>
+    </div>
+    <div class="card-footer">Footer</div>
+  </div>
+</div>
